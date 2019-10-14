@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app1" >
+    <button @click="awesome = !awesome">flip</button>
+<h4 v-if="awesome"> it's awesome</h4>
+<h4 v-else> oh no!</h4>
+</div>
+
+</body>
+<script>
+    var app1 = new Vue({
+        el: '#app1',
+        data: {
+            awesome: true
+        }
+    })
+</script>
+</html>

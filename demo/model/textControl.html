@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app1">
+    <input v-model="username" type="text" placeholder="请输入用户名">
+    <input @onblur="confirm" v-model="password" type="password" placeholder="请输入密码">
+    <input @onblur="confirm" v-model="password_confirm" type="password" placeholder="请输入确认密码">
+
+
+    <button @click="">提交</button>
+    <div class="userinfo">
+        username = {{username}}
+        <br>
+        password = {{password}}<br>
+        password_confirm = {{password_confirm}}
+        <br>
+        <br>
+        <p >{{confirm}}</p>
+    </div>
+</div>
+
+</body>
+<script>
+    var app1 = new Vue({
+        el: '#app1',
+        data: {
+            username: '',
+            password: '',
+            password_confirm: ''
+        },
+        methods: {
+            confirm_password: function (val1, val2) {
+                if (val1 == val2){
+                    return {success: true,
+                    msg: '密码一致'}
+                }else {
+                    return {success: false,
+                        msg: '两次密码不一致！'}
+                }
+            }
+        },
+        computed: {
+            confirm: function (val1, val2) {
+                if (val1 == val2){
+                    return {success: true,
+                        msg: '密码一致'}
+                }else {
+                    return {success: false,
+                        msg: '两次密码不一致！'}
+                }
+            }
+        }
+    })
+</script>
+</html>
