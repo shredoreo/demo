@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app-data">
+    <p>{{a}}</p>
+    <button v-on:click="a ++">change it(add 1)</button>
+
+    <div v-bind:id="dynamicId">
+        <button v-bind:disabled="isButtonDisabled">Button</button>
+    </div>
+
+    <a v-bind:[attributeName]="url">
+        dsfs
+    </a>
+
+</div>
+
+</body>
+<script>
+    var attributeName = 'href'
+    var data = {
+        a: 1,
+        dynamicId: 'dynamicId',
+        isButtonDisabled: true,
+        attributeName: 'href',
+        url: 'https://cn.vuejs.org/v2/guide/syntax.html#%E7%89%B9%E6%80%A7'
+    };
+    // Object.freeze(data);
+    var app = new Vue({
+        el: '#app-data',
+        data: data
+    })
+    app.$watch('a', function (newV, oldV) {
+        console.log(oldV + '-->' + newV);
+    })
+</script>
+</html>

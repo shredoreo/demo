@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    </script>
+    <script>
+        function test(a,b) {
+            return a + b;
+        }
+
+        $(document).ready(function () {
+            $("p").click(function () {
+                var s = test;
+                alert("1 + 2 = " + s(1,2));
+            });
+        });
+    </script>
+</head>
+<body>
+<p>test test</p>
+</body>
+</html>
